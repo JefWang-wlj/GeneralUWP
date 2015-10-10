@@ -35,7 +35,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0">
+        <Grid Grid.Row="0" Background="LightGray">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="48" />
                 <ColumnDefinition />
@@ -64,7 +64,7 @@
               
                       />
 
-            <TextBlock x:Name="TitleTextBlock" Grid.Column="1" VerticalAlignment="Center" Text="Hello" FontWeight="Bold" Padding="8" />
+            <TextBlock x:Name="TitleTextBlock" Grid.Column="1" VerticalAlignment="Center" Text="Hello" FontWeight="Bold" Padding="8"/>
             
         </Grid>
 

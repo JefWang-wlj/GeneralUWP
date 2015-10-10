@@ -58,14 +58,17 @@ namespace General_UWP_App
 
         private void HomeNavigationStackPanel_Tapped(object sender, TappedRoutedEventArgs e)
         {
+            this.rootSplitView.IsPaneOpen = false;
             this.rootFrame.Navigate(typeof(Views.Home));
-            this.TitleTextBlock.Text = "Home";
+            this.TitleTextBlock.Text = "主页";
+            
         }
 
         private void AboutNavigationStackPanel_Tapped(object sender, TappedRoutedEventArgs e)
         {
+            this.rootSplitView.IsPaneOpen = false;
             this.rootFrame.Navigate(typeof(Views.About));
-            this.TitleTextBlock.Text = "About";
+            this.TitleTextBlock.Text = "关于我们";
         }
 
     }

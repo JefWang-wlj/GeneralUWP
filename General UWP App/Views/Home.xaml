@@ -8,6 +8,6 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Text="主页" FontSize="32"/>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="A Blank Page" FontSize="32" FontWeight="Bold"/>
     </Grid>
 </Page>

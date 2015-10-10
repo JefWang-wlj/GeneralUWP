@@ -8,6 +8,13 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Text="关于我们" FontSize="32"/>
+        <Pivot>
+            <PivotItem Header="关于我们">
+                <TextBlock Text="王" />
+            </PivotItem>
+            <PivotItem Header="联系我们">
+                <TextBlock Text="电话：18500000000" />
+            </PivotItem>
+        </Pivot>
     </Grid>
 </Page>
