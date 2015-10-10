@@ -8,27 +8,92 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-  
-        <SplitView
-            DisplayMode="Inline"
-            IsPaneOpen="True"
+        <!-- Adaptive triggers -->
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="720" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="rootSplitView.DisplayMode" Value="CompactOverlay"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="rootSplitView.DisplayMode" Value="Overlay"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="48" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <!-- Declared last to have it rendered above everything else, but it needs to be the first item in the tab sequence. -->
+            <ToggleButton x:Name="togglePaneButton" Grid.Column="0"
+                 
+                     
+                      IsChecked="{Binding IsPaneOpen, ElementName=rootSplitView, Mode=TwoWay}"
+                 
+                
+                      
+                      
+                      FontSize="20"
+                      FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                    MinHeight="48"
+                    MinWidth="48"
+               
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top" 
+                
+
+                    Content="&#xE700;" 
+                    
+              
+                      />
+
+            <TextBlock x:Name="TitleTextBlock" Grid.Column="1" VerticalAlignment="Center" Text="Hello" FontWeight="Bold" Padding="8" />
+            
+        </Grid>
+
+
+        <SplitView x:Name="rootSplitView"  Grid.Row="1"
+            DisplayMode="CompactOverlay"
             >
             <SplitView.Pane>
                 <ListView>
-                    <ListViewItem x:Name="HomeNavigationStackPanel" Tapped="HomeNavigationStackPanel_Tapped">
-                        <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Grid.Column="0" Symbol="ClearSelection"/>
-                            <TextBlock Grid.Column="1" Text="asdasdasdasd" />
-                        </StackPanel>
-                     
-                          
-                    
+                    <ListViewItem x:Name="HomeNavigationStackPanel" Tapped="HomeNavigationStackPanel_Tapped" Padding="0" Margin="0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="48" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <SymbolIcon HorizontalAlignment="Center" VerticalAlignment="Center" Symbol="ClearSelection"/>
+                            <TextBlock Grid.Column="1" Text="主页" Padding="8" FontWeight="SemiBold" />
+                        </Grid>
+
                     </ListViewItem>
-                    <ListViewItem x:Name="AboutNavigationStackPanel" Tapped="AboutNavigationStackPanel_Tapped">
-                        <StackPanel Orientation="Horizontal">
-                            <SymbolIcon x:Name="About" Symbol="Account"/>
-                            <TextBlock Text="asdasdasdsafgdfgdfgsdfgdasd" />
-                        </StackPanel>
+                    <ListViewItem x:Name="AboutNavigationStackPanel" Tapped="AboutNavigationStackPanel_Tapped" Padding="0" Margin="0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="48" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <SymbolIcon HorizontalAlignment="Center" VerticalAlignment="Center" Symbol="Account"/>
+                            <TextBlock Grid.Column="1" Text="关于我们" Padding="8" FontWeight="SemiBold" />
+                        </Grid>
                     </ListViewItem>
                 </ListView>
             </SplitView.Pane>
@@ -38,7 +103,7 @@
             </Frame>
             
         </SplitView>
-        
-        
+
+
     </Grid>
 </Page>

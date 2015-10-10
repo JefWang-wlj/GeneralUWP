@@ -55,16 +55,18 @@ namespace General_UWP_App
             currentView.BackRequested += onBackRequested;
         }
 
+
         private void HomeNavigationStackPanel_Tapped(object sender, TappedRoutedEventArgs e)
         {
             this.rootFrame.Navigate(typeof(Views.Home));
+            this.TitleTextBlock.Text = "Home";
         }
 
         private void AboutNavigationStackPanel_Tapped(object sender, TappedRoutedEventArgs e)
         {
             this.rootFrame.Navigate(typeof(Views.About));
+            this.TitleTextBlock.Text = "About";
         }
-
 
     }
 }
